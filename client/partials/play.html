@@ -1,0 +1,35 @@
+Hi, <span ng-bind="username"></span>!<br>
+<p>Choose an answer for each of the questions and submit the test once done. Good luck!</p>
+<span ng-if='errors'><p ng-repeat='error in errors'>{{error}}</p></span>
+    <!-- {{errors}} -->
+
+<hr>
+<form ng-submit='submitAnswers()'>
+<div>
+  <p>1. {{questions[0].question}}</p>
+  <fieldset ng-form='part_one'>
+  <input type="radio" ng-model="new_answer.question1" value="1" name="question1">{{questions[0].answer}}<br>
+  <input type="radio" ng-model="new_answer.question1" value="0" name="question1">{{questions[0].fake_answer1}}<br>
+  <input type="radio" ng-model="new_answer.question1" value="0" name="question1">{{questions[0].fake_answer2}}<br>
+  </fieldset><br>
+    <p>2. {{questions[1].question}}</p>
+
+  <fieldset ng-form='part_two'>
+  <input type="radio" ng-model="new_answer.question2" value="1" name="question2">{{questions[1].answer}}<br>
+  <input type="radio" ng-model="new_answer.question2" value="0" name="question2">{{questions[1].fake_answer1}}<br>
+  <input type="radio" ng-model="new_answer.question2" value="0" name="question2">{{questions[1].fake_answer2}}<br>
+  </fieldset><br>
+    <p>3. {{questions[2].question}}</p>
+
+<fieldset ng-form='part_three'>
+  <input type="radio" ng-model="new_answer.question3" value="1" name="question3">{{questions[2].answer}}<br>
+  <input type="radio" ng-model="new_answer.question3" value="0" name="question3">{{questions[2].fake_answer1}}<br>
+  <input type="radio" ng-model="new_answer.question3" value="0" name="question3">{{questions[2].fake_answer2}}<br>
+  </fieldset><br>
+</div>
+
+<br>
+  <input type="hidden" value="{{username}}">
+  <button><a href="#/">Cancel</a></button>
+  <input type="submit" value="Submit">
+</form>

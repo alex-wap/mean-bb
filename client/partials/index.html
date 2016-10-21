@@ -1,0 +1,39 @@
+<span ng-hide='username'><div style="height:1000px;">
+You are not logged in! Please login <a href="#/logout">here.</div></span>
+
+<div>
+    <a href="#/">Home</a> | <a href="#/new_question">Add a Question</a> | <a href="#/logout">Logout</a>
+
+    <hr>
+{{success_msg}}
+    <button><a href="#/lets_play">Play!</a></button>
+    <p>Click the button above to start the trivia game.</p>
+    <hr>
+    Search <input type="text" ng-model="search">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="answer in answers | filter:search | orderBy:'score':true">
+                <td ng-bind="answer.name"></td>
+                <td>{{answer.score}}/3</td>
+                <td>{{answer.percentage}}%</td>
+                <!-- <td>{{(100*score.score/3*10 | number: 0)/10}}%</td> -->
+            </tr>
+        </tbody>
+    </table>
+<!--     <hr>
+    <form ng-submit='createScore()'>
+        {{username}}<br>
+        <input type="number" ng-model='score.score' placeholder="3">
+        <input type="submit" value="Submit">
+    </form>
+    <hr>
+    {{questions}}
+    {{answers}} -->
+</div>

@@ -1,0 +1,12 @@
+<a href="#/">Home</a> | <a href="#/new_question">Add a Question</a> | <a href="#/logout">Logout</a>
+<hr>
+<span ng-if='errors'><p ng-repeat='error in errors'>{{error.message}}</p></span>
+
+<h1>New Question</h1>
+<form ng-submit='createQuestion()'>
+	Question <textarea ng-model='new_question.question'></textarea><br><br>
+	Correct Answer <input type="text" ng-model='new_question.answer'><br><br>
+	Fake Answer 1  <input type="text" ng-model='new_question.fake_answer1'><br><br>
+	Fake Answer 2  <input type="text" ng-model='new_question.fake_answer2'><br><br>
+	<button><a href="#/">Cancel</a></button> <input type="submit" value="Add Question">
+</form>
